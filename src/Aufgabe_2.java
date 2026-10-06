@@ -20,7 +20,7 @@ public class Aufgabe_2 {
     {
         int min = this.zahlen[0];
         for(int i: this.zahlen)
-            if(i > min)
+            if(i < min)
                 min = i;
         return min;
     }
@@ -29,8 +29,17 @@ public class Aufgabe_2 {
     {
         int[] zahlen_sorted = Arrays.stream(this.zahlen).sorted().toArray();
         int maxSum = 0;
-        for(int i = 0; i < zahlen_sorted.length-1; i++)
-            maxSum +=zahlen_sorted[i];
+        for(int i = zahlen_sorted.length-1; i > 0; i--)
+            maxSum += zahlen_sorted[i];
         return maxSum;
+    }
+
+    public int minimaleSumme()
+    {
+        int[] zahlen_sorted = Arrays.stream(this.zahlen).sorted().toArray();
+        int minSum = 0;
+        for(int i = 0; i < zahlen_sorted.length-1; i++)
+            minSum += zahlen_sorted[i];
+        return minSum;
     }
 }
